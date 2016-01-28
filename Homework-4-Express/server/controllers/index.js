@@ -1,17 +1,11 @@
-'use strict';
-
-var usersController = require('../controllers/usersController'),
-    gameTasksController = require('../controllers/gameTasksController'),
-    gameAttacksController = require('../controllers/gameAttacksController'),
-    gameObjectsController = require('../controllers/gameObjectsController'),
-    gameMessagesController = require('../controllers/gameMessagesController'),
-    gameReportsController = require('../controllers/gameReportsController');
+var UsersController = require('./UsersController');
+var PlaylistsController = require('./PlaylistsController');
+var ProfileController = require('./ProfileController');
+var HomeController = require('./HomeController');
 
 module.exports = {
-    users: usersController,
-    gameObjects: gameObjectsController,
-    gameTasks: gameTasksController,
-    gameAttacks: gameAttacksController,
-    gameReports: gameReportsController,
-    gameMessages: gameMessagesController
+    users: UsersController,
+    playlists: PlaylistsController,
+    profile: ProfileController,
+    home: HomeController
 };

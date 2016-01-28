@@ -1,21 +1,11 @@
-extends includes/layout
-
+extends shared/layout
 block main-content
-    header.nav.navbar-default.navbar-fixed-top
-        .container
-            .navbar-header
-                button.navbar-toggle(type="button" data-toggle="collapse" data-target="#navbar-main")
-                    span.icon-bar
-                    span.icon-bar
-                    span.icon-bar
-                a.navbar-brand(href="#/") NovCraft
-            .navbar-collapse.collapse#navbar-main
-                div(ng-include="'partials/nav/nav'")
-                div(ng-include="'partials/account/login'")
+    h1 Welcome to YouTube Playlist
 
-    section
-        div(ng-view)
-
-    footer
-        p.text-center.text-success
-            | &copy NovCraft MEAN Application 2014 Powered by bootstrap & starcraft.wikia.com
+    h2 Most popular playlists:
+        each playlist in playlists
+            p Title : #{playlist.title}
+                p Description: #{playlist.description}
+                p  Creator: #{playlist.creator}
+                p Rating: #{playlist.rating}
+                br

@@ -1,0 +1,35 @@
+extends ../shared/layout
+block main-content
+    form(method="post")
+        label(for="title") Title
+        input(id="title" class="form-control" type="text" name="title" placeholder="Title")
+        br
+        label(for="description") Description
+        input(id="description" class="form-control" type="text" name="description" placeholder="Description")
+        br
+        label(for="category") Category
+        select(id="category" class="form-control" name="category")
+            option(value="") Choose Category
+            each category in categories
+                option(value="#{category}") #{category}
+        br
+        label(for="url") Video URL
+        input(id="url" class="form-control" type="string" name="videoUrls" placeholder="URL")
+        br
+        label(for="comments") Comments
+        input(id="comments" class="form-control" type="string" name="comments" placeholder="Comments")
+        br
+        b Playlist type
+        br
+        input(type="radio", name="public", value="true", checked)
+        | Public
+        br
+        input(type="radio", name="public", value="false")
+        | Private
+        br
+        br
+        label(for="rating") Rating
+        input(id="rating" class="form-control" type="number" name="rating" placeholder="Rating" min="1" max="5" value="1")
+        br
+        input(type="submit" class="btn btn-lg" value="Create")
+

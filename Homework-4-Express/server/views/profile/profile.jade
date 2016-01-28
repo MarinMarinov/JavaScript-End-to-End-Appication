@@ -1,0 +1,35 @@
+extends ../shared/layout
+block main-content
+    .well.container
+        h2= currentUser.username
+        img.pull-right(src="#{currentUser.avatar}" alt="#{currentUser.username}" height="200")
+    .well: form.form-horizontal(method="post" enctype="multipart/form-data"): fieldset
+        legend Update Profile
+        .form-group
+            label.col-md-4.control-label(for="firstName") First name
+            .col-md-8
+                input.form-control(id="firstName" value="#{currentUser.firstName}" type="text" name="firstName")
+        .form-group
+            label.col-md-4.control-label(for="lastName") Last name
+            .col-md-8
+                input.form-control(id="lastName" value="#{currentUser.lastName}" type="text" name="lastName")
+        .form-group
+            label.col-md-4.control-label(for="email") Email
+            .col-md-8
+                input.form-control(id="email" value="#{currentUser.email}" type="text" name="email")
+        .form-group
+            label.col-md-4.control-label(for="avatar") Avatar link
+            .col-md-8
+                input.form-control(id="avatar" value="#{currentUser.avatar}" type="text" name="avatar")
+        .form-group
+            label.col-md-4.control-label(for="facebookAccount") Facebook Profile link
+            .col-md-8
+                input.form-control(id="facebookAccount" value="#{currentUser.facebookAccount}" type="text" name="facebookAccount")
+        .form-group
+            label.col-md-4.control-label(for="youtubeAccount") YouTube Profile link
+            .col-md-8
+                input.form-control(id="youtubeAccount" value="#{currentUser.youtubeAccount}" type="text" name="youtubeAccount")
+        .pull-right
+            input.btn.btn-primary(type="submit" value="Update")
+            a.btn.btn-danger(href="/") Cancel
+

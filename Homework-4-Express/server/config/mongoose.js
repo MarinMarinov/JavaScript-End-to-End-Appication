@@ -1,35 +1,25 @@
-'use strict';
-
 var mongoose = require('mongoose'),
-    modelsExports = require('../models');
+    UserModel = require('../data/models/User'),
+    PlaylistModel = require('../data/models/Playlist');
 
-module.exports = function (config) {
+
+module.exports = function(config) {
     mongoose.connect(config.db);
     var db = mongoose.connection;
 
-    db.once('open', function (err) {
+    db.once('open', function(err) {
         if (err) {
-            console.log('Database could not be opened' + err);
+            console.log('Database could not be opened: ' + err);
+            return;
         }
+
+        console.log('Database up and running...')
     });
 
-    db.on('error', function (err) {
-        console.log('Database error ' + err);
+    db.on('error', function(err){
+        console.log('Database error: ' + err);
     });
+
+    UserModel.init();
+    PlaylistModel.init();
 };
-
-// For development
-function clearDb() {
-    modelsExports.user.removeAll();
-    modelsExports.gameObjects.removeAll();
-    modelsExports.message.removeAll();
-    modelsExports.report.removeAll();
-}
-
-// For development
-function showDb() {
-    modelsExports.user.showAll();
-    modelsExports.gameObjects.showAll();
-    modelsExports.message.showAll();
-    modelsExports.report.showAll();
-}
